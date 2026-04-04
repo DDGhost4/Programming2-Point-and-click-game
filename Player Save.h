@@ -1,48 +1,60 @@
+#pragma once
 #include <string>
-#include <string_view>
 #include <vector>
+#include <fstream>
+#include <filesystem>
 
-
-class SaveAndLoad {
-public:
-	
-	
-
-	void setCurrentInventory(std::string item);//Place the parameters for this before testing
-
-	std::string_view getCurrentInventory() const;
-
-	void setCurrentRoom(int );//Place the parameters for this before testing
-
-	int getCurrentRoom() const;
-
-	void setCurrentStats(int health, int attack, int defense);
-
-	int getCurrentStats() const;
-
-
-
-private:
-	std::vector <std::string> m_invenotory;
-	int m_attack;
-	int m_defense;
-	int m_health;
-	int m_room;
-	
+struct Stats {
+    int HP; //health points
+    int ATT; //attack
+    int DEF; //defense
+    Stats() :HP(0), ATT(0), DEF(0) {}
+    Stats(int hp, int att, int def) : HP(hp), ATT(att), DEF(def) {}
 };
 
-class CreateSave {
+class SaveData {
 public:
-	void create()
+    SaveData();
+
+    void addItem(const std::string& item) {
+        m_inventory.push_back(item);
+    }
+
+    const std::vector<std::string>& getCurrentInventory() const {
+        return m_inventory;
+    }
+
+    void setCurrentRoom(int roomnum) {
+        m_room = roomnum;
+    }
+
+    int getCurrentRoom() const {
+        return m_room;
+    }
+
+    void setCurrentStats(const Stats& s) {
+        m_stats = s;
+    }
+
+    Stats getCurrentStats() const {
+        return m_stats;
+    }
 
 private:
-	bool m_created{};
-
+    std::vector<std::string> m_inventory;
+    Stats m_stats{};
+    int m_room{0};
 };
 
-class DeleteSave {
+
+
+class SaveSystem {
 public:
 
-private:
-	
+    SaveSystem();
+
+	bool loadSaveFile(const std::filesystem::path& file, SaveData& out); //Loads the save
+	bool deleteSaveFile(const std::filesystem::path& file); //deletes save file
+	bool saveToFile(const std::filesystem::path& file, const SaveData& data) const ; //saves to the file
+
 };
