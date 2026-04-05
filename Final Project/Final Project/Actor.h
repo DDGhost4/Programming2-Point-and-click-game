@@ -2,12 +2,26 @@
 class Actor
 {
 public:
-	Actor(int statHealth, int statAttack, int statDefense)
-		: m_health(statHealth), m_attack(statAttack), m_defense(statDefense) {};
+	Actor(int statHealth, int statAttack, int statDefense);
 	virtual ~Actor() = default;
+
+	void setHealth(int health);
+	int getHealth() const;
+	
+	void setCurrentHealth(int currentHealth);
+	int getCurrentHealth() const;
+	
+	void setAttack(int attack);
+	int getAttack() const;
+	
+	void setDefense(int defense);
+	int getDefense() const;
+
 private:
-	int m_health;
-	int m_attack;
-	int m_defense;
+	int m_statHealth;
+	int m_statCurrentHealth;
+	int m_statAttack;
+	int m_statDefense;
+	
 };
 
