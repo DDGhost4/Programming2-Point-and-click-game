@@ -35,7 +35,7 @@ public:
 //subclass Equipment and consumables
 class Equipment : public Items {
 private:
-	int durability;
+	int durability{100};
 
 public:
 	Equipment(std::string n) : Items(n) {}
@@ -50,16 +50,16 @@ public:
 };
 
 //subclass of equipment sheild and sword
-class Sheilds : public Equipment {
+class Shields : public Equipment {
 private:
 	// how much the shield will defend against incoming attack damage
 	int defend;
 
 	// simple counter to vary shield strength depending on creation order.
-	static int sh_count;
+	static inline int sh_count =0;
 public:
 	// Default constructor: always calls Equipment with a name
-	Sheilds() : Equipment("weakshield") {
+	Shields() : Equipment("weakshield") {
 		++sh_count;
 		if (sh_count == 1) defend = 4;      // weak
 		else if (sh_count == 2) defend = 7; // strong
@@ -73,33 +73,33 @@ public:
 };
 
 // Definition of the static counter. 
-int Sheilds::sh_count = 0;
+//int Shields::sh_count = 0;
 
 
 class Swords : public Equipment {
 private:
 	// how much the sword will defend against incoming attack damage
-	int Aattack;
+	int attack;
 
 	// simple counter to vary sword strength depending on creation order.
-	static int sw_count;
+	static inline int sw_count=0;
 public:
 	// Default constructor: always calls Equipment with a name
 	Swords() : Equipment("weaksword") {
 		++sw_count;
-		if (sw_count == 1) Aattack = 4;      // weak
-		else if (sw_count == 2) Aattack = 7; // strong
-		else if (sw_count == 3) Aattack = 10; // stronger
-		else Aattack = 4; // default defense for new swords
+		if (sw_count == 1) attack = 4;      // weak
+		else if (sw_count == 2) attack = 7; // strong
+		else if (sw_count == 3) attack = 10; // stronger
+		else attack = 4; // default defense for new swords
 	}
 
-	void equipDefense(int& attack) override {
-		attack += Aattack;
+	void equipAttack(int& attack) override {
+		attack += attack;
 	}
 };
 
 // Definition of the static counter. 
-int Swords::sw_count = 0;
+//int Swords::sw_count = 0;
 
 //subclass of consumables Healing Potion(HPotion)
 class HPotion : public consumables {
