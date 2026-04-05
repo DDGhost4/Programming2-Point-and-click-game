@@ -20,7 +20,6 @@ void Room::setEnemyPresent(bool enemyPresent) { m_enemyPresent = enemyPresent; }
 bool Room::getEnemyPresent() const { return m_enemyPresent;}
 
 void Room::setLootAmount(int lootAmount){ m_lootAmount = lootAmount; }
-
 int Room::getLootAmount() const { return m_lootAmount; }
 
 void Room::displayInfo() const
