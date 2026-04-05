@@ -5,6 +5,10 @@ public:
 	Actor(int statHealth, int statAttack, int statDefense);
 	virtual ~Actor() = default;
 
+	void takeDamage(int damage);
+
+	int attackDamage(int multiplier) const;
+
 	void setHealth(int health);
 	int getHealth() const;
 	
@@ -17,6 +21,8 @@ public:
 	void setDefense(int defense);
 	int getDefense() const;
 
+
+
 private:
 	int m_statHealth;
 	int m_statCurrentHealth;
@@ -24,4 +30,5 @@ private:
 	int m_statDefense;
 	
 };
+
 

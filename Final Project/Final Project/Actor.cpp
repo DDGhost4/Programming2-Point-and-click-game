@@ -8,6 +8,16 @@ Actor::Actor(int statHealth, int statAttack, int statDefense)
 	m_statDefense(statDefense)
 {};
 
+void Actor::takeDamage(int damage)
+{
+	setCurrentHealth(getCurrentHealth() - damage);
+}
+
+int Actor::attackDamage(int multiplier) const
+{
+	return getAttack() * multiplier;
+}
+
 void Actor::setHealth(int health) { m_statHealth = health; }
 int Actor::getHealth() const { return m_statHealth; }
 
