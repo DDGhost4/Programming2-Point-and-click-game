@@ -6,9 +6,9 @@
 This header file is for defining items for the game
 If you want to use this file add #include "item.h" to the .cpp file
 When you want to import equipment from this file to the main, add (Sword. //name of sword//;)
-                                                                  (Sheild. //name of sheild//;)
+                                                                  (Shield. //name of shield//;)
 
-When you want to equip an item in the main, add (//name of sheild//.equipDefense(////name of defense stat))
+When you want to equip an item in the main, add (//name of shield//.equipDefense(////name of defense stat))
                                                 (//name of sword//.equipAttack(////name of attack stat))
 
 when you want to import the health potion just add (HPotion potion;)
@@ -75,9 +75,6 @@ public:
 	}
 };
 
-// Definition of the static counter. 
-//int Shields::sh_count = 0;
-
 
 class Swords : public Equipment {
 private:
@@ -103,9 +100,6 @@ public:
 		attack += attack;
 	}
 };
-
-// Definition of the static counter. 
-//int Swords::sw_count = 0;
 
 //subclass of consumables Healing Potion(HPotion)
 class HPotion : public consumables {
