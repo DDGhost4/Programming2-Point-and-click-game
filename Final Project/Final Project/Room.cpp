@@ -11,7 +11,7 @@ Room::Room(int path, int lootAmount, bool enemyPresent, int level)
 
 // Getters and setters
 void Room::setLevel(int level) { m_level = level; }
-int Room::getLevel() const { return 0;}
+int Room::getLevel() const { return m_level;}
 
 void Room::setPath(int path) { m_path = path; }
 int Room::getPath() const { return m_path;}
