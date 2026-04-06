@@ -24,8 +24,8 @@ private:
 	std::string name;
 public:
 	Items(std::string n) : name(n) {}
-	virtual ~Items() {}
-
+	virtual ~Items() = default;
+	virtual std::string getName() const = 0;
 	// equipment and consumables have different behavior. Provide two
 	// distinct no-op hooks so subclasses can override only what they need.
 	virtual void equipDefense(int& /*defense*/) { }
@@ -59,6 +59,9 @@ private:
 	static inline int sh_count =0;
 public:
 	// Default constructor: always calls Equipment with a name
+	std::string getName() const override {
+		return "Shield";
+	}
 	Shields() : Equipment("weakshield") {
 		++sh_count;
 		if (sh_count == 1) defend = 4;      // weak
@@ -85,6 +88,9 @@ private:
 	static inline int sw_count=0;
 public:
 	// Default constructor: always calls Equipment with a name
+	std::string getName() const override {
+		return "Sword";
+	}
 	Swords() : Equipment("weaksword") {
 		++sw_count;
 		if (sw_count == 1) attack = 4;      // weak
@@ -107,7 +113,9 @@ private:
 	int healthregained{7};
 public:
 	HPotion() : consumables("potion") {}
-	
+	std::string getName() const override {
+		return "HPotion";
+	}
 	void use(int& health) override {
 		health += healthregained;
 	}
