@@ -111,6 +111,11 @@ public:
 		return "HPotion";
 	}
 	void use(int& health) override {
-		health += healthregained;
+		if (health + healthregained > 100) {// If the amount gained from the potion makes the health go past full
+			health = 100;                   // just set the health to full instead of going over
+		}
+		else {
+			health += healthregained;
+		}
 	}
 };
