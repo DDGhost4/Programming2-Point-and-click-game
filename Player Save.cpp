@@ -1,9 +1,13 @@
 #include <fstream>
 #include <filesystem>
 #include <string>
-#include <format>
 #include <iostream>
+#include <memory>
+#include "Items.h"
 #include "Player Save.h"
+#include "Room.h"
+
+
 
 SaveData::SaveData() : m_inventory(), m_stats(0,0,0), m_room(0) {};
 
@@ -41,14 +45,17 @@ bool SaveSystem::loadSaveFile(const std::filesystem::path& file, SaveData& out) 
 	ifs.ignore(10000, '\n');
 	
 	// read each inventory item
-	std::string item;
+	std::string itemType;
 	for (size_t i = 0; i < inventoryCount; ++i) {
-		if (!getline(ifs, item)) {
+		if (!std::getline(ifs,itemType)) {
 			ifs.close();
 			return false;
 		}
-		out.addItem(item);
+		else if (itemType == "HPotion") { out.addItem(std::make_unique<HPotion>()); }
+		else if (itemType == "Sword") { out.addItem(std::make_unique<Swords>()); }
+		else if (itemType == "Shield") { out.addItem(std::make_unique<Shields>()); }
 	}
+	
 	
 	ifs.close();
 	return true;
@@ -70,18 +77,32 @@ bool SaveSystem::saveToFile(const std::filesystem::path& file,const SaveData& da
 		// write inventory: first the count, then each item on its own line
 		const auto& inv = data.getCurrentInventory();
 		ofs << inv.size() << '\n';
-		for (const auto& item : inv) {
-			ofs << item << '\n';
-		}
 
-		ofs.close();
-		// if file was written and closed without errors, return true
-		return !ofs.fail();
+		for (const auto& item : inv) {
+			if (dynamic_cast<HPotion*>(item.get())) {
+				ofs << "HPotion\n";
+			}
+			else if (dynamic_cast<Swords*>(item.get())) {
+				ofs << "Sword\n";
+			}
+			else if (dynamic_cast<Shields*>(item.get())) {
+				ofs << "Shield\n";
+			}
+		}
 	}
+	ofs.close();
+	// if file was written and closed without errors, return true
+	return !ofs.fail();
 }
 
 
-
+bool SaveSystem::createSaveFile(const std::filesystem::path& file) {
+	std::ofstream create(file, std::ios::out);
+	if (!create) {
+		return false;
+	}
+		return !create.fail();
+}
 
 bool SaveSystem::deleteSaveFile(const std::filesystem::path& file) {
 	remove(file);
