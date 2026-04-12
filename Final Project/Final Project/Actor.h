@@ -1,43 +1,43 @@
 #pragma once
+
+#include <vector>
+
 class Actor
 {
 public:
     Actor(int statHealth, int statAttack, int statDefense);
     virtual ~Actor() = default;
 
-    // Apply damage to this actor. Damage is reduced by this actor's defense.
-    void takeDamage(int damage);
-
-    // Compute outgoing attack damage given a multiplier.
-    int attackDamage(int multiplier) const;
-
-    // Restore health (clamped to max).
-    void heal(int amount);
+    int attack() const;
 
     // Is actor alive (current health > 0)
     bool isAlive() const;
 
+	void modifyHealth(int value);
+
 
 	// Getters and setters for stats
-    void setHealth(int health);
-    int getHealth() const;
+    void setHP(int health);
+    int getHP() const;
 
-    void setCurrentHealth(int currentHealth);
-    int getCurrentHealth() const;
+    void setCurrentHP(int currentHealth);
+    int getCurrentHP() const;
 
-    void setAttack(int attack);
-    int getAttack() const;
+    void setAtt(int attack);
+    int getAtt() const;
 
-    void setDefense(int defense);
-    int getDefense() const;
+    void setDef(int defense);
+    int getDef() const;
 
 	void displayStats() const;
 
 private:
-    int m_statHealth;
-    int m_statCurrentHealth;
-    int m_statAttack;
-    int m_statDefense;
+    int m_statMaxHP;
+    int m_statCurrentHP;
+    int m_statBaseAtt;
+    int m_statBaseDef;
+
 };
+
 
 

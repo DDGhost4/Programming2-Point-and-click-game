@@ -129,10 +129,9 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Combat.h" />
-    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Final Project.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="Items.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="targetver.h" />
@@ -140,9 +139,7 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Combat.cpp" />
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Final Project.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
   </ItemGroup>
   <ItemGroup>
