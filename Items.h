@@ -1,17 +1,18 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <string>
 
 /*
 This header file is for defining items for the game
 If you want to use this file add #include "item.h" to the .cpp file
 When you want to import equipment from this file to the main, add (Armor. //name of armor//;)
 																  (Sword. //name of sword//;)
-                                                                  (Shield. //name of shield//;)
+																  (Shield. //name of shield//;)
 
 When you want to equip an item in the main, add (//name of armor//.equipArDefense(////name of armordefense stat))
 												(//name of shield//.equipDefense(////name of defense stat))
-                                                (//name of sword//.equipAttack(////name of attack stat))
+												(//name of sword//.equipAttack(////name of attack stat))
 
 when you want to import the health potion just add (HPotion potion;)
 When you want to use the health potion just add (potion.use(health);)
@@ -21,7 +22,7 @@ When you want to use the health potion just add (potion.use(health);)
 
 
 // top class Items
-class Items{
+class Items {
 private:
 	std::string name;
 public:
@@ -30,15 +31,15 @@ public:
 	virtual std::string getName() const = 0;
 	// equipment and consumables have different behavior. Provide two
 	// distinct no-op hooks so subclasses can override only what they need.
-	virtual void equipArDefense(int& /*armordefense*/) { }
-	virtual void equipDefense(int& /*defense*/) { }
-	virtual void equipAttack(int& /*attack*/) { }
+	virtual void equipArDefense(int& /*armordefense*/) {}
+	virtual void equipDefense(int& /*defense*/) {}
+	virtual void equipAttack(int& /*attack*/) {}
 };
 
 //subclass Equipment and consumables
 class Equipment : public Items {
 private:
-	int durability{100};
+	int durability{ 100 };
 
 public:
 	Equipment(std::string n) : Items(n) {}
@@ -52,6 +53,10 @@ public:
 	virtual void use(int& health) = 0;
 };
 
+
+
+
+
 //subclass of equipment sheild and sword and armor
 class Armor : public Equipment {
 private:
@@ -61,22 +66,15 @@ private:
 	// simple counter to vary armor strength depending on creation order.
 	static inline int ar_count = 0;
 public:
-	// Default constructor: always calls Equipment with a name
-	std::string getName() const override {
-		return "Armor";
-	}
-	Armor() : Equipment("weakArmor") {
-		++ar_count;
-		if (ar_count == 1) armordefend = 4;      // weak
-		else if (ar_count == 2) armordefend = 7; // strong
-		else if (ar_count == 3) armordefend = 10; // stronger
-		else armordefend = 4; // default defense for new armors
-	}
-
-	void equipArDefense(int& armordefense) override {
-		armordefense = armordefend;
-	}
+	Armor();
+	std::string getName() const override;
+	void equipArDefense(int& armordefense) override;
 };
+
+
+
+
+
 
 
 class Shields : public Equipment {
@@ -85,24 +83,19 @@ private:
 	int defend;
 
 	// simple counter to vary shield strength depending on creation order.
-	static inline int sh_count =0;
+	static inline int sh_count = 0;
 public:
-	// Default constructor: always calls Equipment with a name
-	std::string getName() const override {
-		return "Shield";
-	}
-	Shields() : Equipment("weakshield") {
-		++sh_count;
-		if (sh_count == 1) defend = 4;      // weak
-		else if (sh_count == 2) defend = 7; // strong
-		else if (sh_count == 3) defend = 10; // stronger
-		else defend = 4; // default defense for new sheilds
-	}
-
-	void equipDefense(int& defense) override {
-		defense = defend;
-	}
+	Shields();
+	std::string getName() const override;
+	void equipDefense(int& defense) override;
+	
 };
+
+
+
+
+
+
 
 
 class Swords : public Equipment {
@@ -111,40 +104,25 @@ private:
 	int attack;
 
 	// simple counter to vary sword strength depending on creation order.
-	static inline int sw_count=0;
+	static inline int sw_count = 0;
 public:
-	// Default constructor: always calls Equipment with a name
-	std::string getName() const override {
-		return "Sword";
-	}
-	Swords() : Equipment("weaksword") {
-		++sw_count;
-		if (sw_count == 1) attack = 4;      // weak
-		else if (sw_count == 2) attack = 7; // strong
-		else if (sw_count == 3) attack = 10; // stronger
-		else attack = 4; // default defense for new swords
-	}
-
-	void equipAttack(int& attacks) override {
-		attacks = attack;
-	}
+	Swords();
+	std::string getName() const override;
+	void equipAttack(int& attacks) override;
 };
+
+
+
+
+
+
 
 //subclass of consumables Healing Potion(HPotion)
 class HPotion : public consumables {
 private:
-	int healthregained{7};
+	int healthregained;
 public:
-	HPotion() : consumables("potion") {}
-	std::string getName() const override {
-		return "HPotion";
-	}
-	void use(int& health) override {
-		if (health + healthregained > 100) {// If the amount gained from the potion makes the health go past full
-			health = 100;                   // just set the health to full instead of going over
-		}
-		else {
-			health += healthregained;
-		}
-	}
+	HPotion();
+	std::string getName() const override;
+	void use(int& health) override;
 };
