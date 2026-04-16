@@ -13,37 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Damian">
+      <UniqueIdentifier>{313b69a8-c1c8-49cd-8961-f568b671475e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Damian">
+      <UniqueIdentifier>{2a7252ff-ce91-4aaa-9218-11cbea159d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Rafael">
+      <UniqueIdentifier>{66d49aae-8f89-485f-97ee-2961821a6930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rafael">
+      <UniqueIdentifier>{b0918391-e058-4b1f-bf13-81147d35cf48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Final Project.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Final Project.cpp">
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Items.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Damian</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Damian</Filter>
+    </ClCompile>
+    <ClCompile Include="Player Save.cpp">
+      <Filter>Source Files\Rafael</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Final Project.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Final Project.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <ClInclude Include="Items.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Damian</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\Damian</Filter>
+    </ClInclude>
+    <ClInclude Include="Player Save.h">
+      <Filter>Header Files\Rafael</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
