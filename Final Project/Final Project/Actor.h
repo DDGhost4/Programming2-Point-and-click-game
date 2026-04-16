@@ -5,16 +5,14 @@
 class Actor
 {
 public:
+    // Constructor
     Actor(int statHealth, int statAttack, int statDefense);
     virtual ~Actor() = default;
 
-    int attack() const;
-
-    // Is actor alive (current health > 0)
-    bool isAlive() const;
-
-	void modifyHealth(int value);
-
+    // Actor Actions
+    int attack() const; // return total damage
+	bool isAlive() const; // return if the actor is alive 
+	void modifyHealth(int value); // change health by a certain value (positive or negative)
 
 	// Getters and setters for stats
     void setHP(int health);

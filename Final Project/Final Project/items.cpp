@@ -1,13 +1,15 @@
 #include <iostream>
 #include "Items.h"
 
+
+
 Armor::Armor() : Equipment("weakArmor") {
 	++ar_count;
 
-	if (ar_count == 1) armordefend = 4;      // weak
-	else if (ar_count == 2) armordefend = 7; // strong
-	else if (ar_count == 3) armordefend = 10; // stronger
-	else armordefend = 4; // default defense for new armors
+	if (ar_count == 1) armorDefend = 4;      // weak
+	else if (ar_count == 2) armorDefend = 7; // strong
+	else if (ar_count == 3) armorDefend = 10; // stronger
+	else armorDefend = 4; // default defense for new armors
 }
 
 std::string Armor::getName() const {
@@ -15,7 +17,7 @@ std::string Armor::getName() const {
 }
 
 void Armor::equipArDefense(int& armordefense) {
-	armordefense = armordefend;
+	armordefense = armorDefend;
 }
 
 
@@ -79,16 +81,16 @@ void Swords::equipAttack(int& attacks) {
 
 HPotion::HPotion()
 	: consumables("potion"),
-healthregained(7) {}
+healthRegained(7) {}
 
 std::string HPotion::getName() const {
 	return "HPotion";
 }
 void HPotion::use(int& health) {
-	if (health + healthregained > 100) {// If the amount gained from the potion makes the health go past full
+	if (health + healthRegained > 100) {// If the amount gained from the potion makes the health go past full
 		health = 100;                   // just set the health to full instead of going over
 	}
 	else {
-		health += healthregained;
+		health += healthRegained;
 	}
 }
