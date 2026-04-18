@@ -1,5 +1,6 @@
 #pragma once
-
+#include "Items.h"
+#include <memory>
 #include <vector>
 
 class Actor
@@ -10,9 +11,9 @@ public:
     virtual ~Actor() = default;
 
     // Actor Actions
-    int attack() const; // return total damage
+    virtual void attack(Actor& target); // return total damage
 	bool isAlive() const; // return if the actor is alive 
-	void modifyHealth(int value); // change health by a certain value (positive or negative)
+	virtual void modifyHealth(int value); // change health by a certain value (positive or negative)
 
 	// Getters and setters for stats
     void setHP(int health);
@@ -30,12 +31,52 @@ public:
 	void displayStats() const;
 
 private:
-    int m_statMaxHP;
-    int m_statCurrentHP;
-    int m_statBaseAtt;
-    int m_statBaseDef;
+    int m_statMaxHP=100;
+    int m_statCurrentHP=0;
+    int m_statBaseAtt=0;
+    int m_statBaseDef=0;
+};
+
+class Player : public Actor {
+public: 
+    using Actor::Actor;
+    
+    void attack(Actor& target) override;
+    
+    void modifyHealth(int value) override;
+
+    void equipItem(Items& item);
+
+    void addItem(std::unique_ptr<Items> item);
+
+
+
+private: 
+    std::vector <std::unique_ptr<Items>> m_inventory;
+    int m_bonusAttack{ 0 };
+    int m_bonusDefense{ 0 };
+    int m_bonusArmor{ 0 };
+};
+
+class Enemy : public Actor {
+public:
+    using Actor::Actor;
+
+    void attack(Actor& target) override;
 
 };
 
 
+class Skeleton : public Enemy {
+
+public:
+
+    using Enemy::Enemy;
+    void attack(Actor& target) override;
+};
+class Ghost : public Enemy {
+public:
+    using Enemy::Enemy;
+    void attack(Actor& target) override;
+};
 
