@@ -1,6 +1,7 @@
 #include "Actor.h"
 #include <iostream>
-
+#include <format>
+//ACTOR SECTION
 Actor::Actor(int statHealth, int statAttack, int statDefense)
     : m_statMaxHP(statHealth),
       m_statCurrentHP(statHealth),
@@ -9,9 +10,10 @@ Actor::Actor(int statHealth, int statAttack, int statDefense)
 { }
 
 
-int Actor::attack() const
+void Actor::attack(Actor&target)
 {
-    
+    int damage = m_statBaseAtt;
+    target.modifyHealth(-damage);
 }
 
 // Actor is alive if current health is greater than 0
@@ -50,5 +52,61 @@ void Actor::displayStats() const
     std::cout << "Health: " << getCurrentHP() << "/" << getHP()
          << " | Attack: " << getAtt()
 		<< " | Defense: " << getDef() << std::endl;
+}
+
+
+
+// PLAYER SECTION
+void Player::attack(Actor& target)
+{
+    int totalAttack = getAtt() + m_bonusAttack;
+    int damage = totalAttack;
+
+    target.modifyHealth(-damage);
+}
+
+void Player::equipItem(Items& item) {
+    item.equipAttack(m_bonusAttack);
+    item.equipDefense(m_bonusDefense);
+    item.equipArDefense(m_bonusArmor);
+}
+
+
+void Player::modifyHealth(int value) {
+
+    if (value < 0) {
+        int totalDefense = getDef() + m_bonusDefense + m_bonusArmor;
+        int reduced = value + totalDefense; //reduced damaged due to defense modifiers
+            if (reduced >= 0) {
+                reduced = 0;
+        }
+            Actor::modifyHealth(reduced);
+    }
+    
+    else {
+        Actor::modifyHealth(value);
+    }
+
+}
+
+void Player::addItem(std::unique_ptr<Items> item) {
+    m_inventory.push_back(std::move(item));
+}
+// ENEMIES/ENEMY SECTION
+
+void Enemy::attack(Actor& target) {
+    int damage = getAtt();
+    target.modifyHealth(-damage);
+}
+
+void Skeleton::attack(Actor& target) {
+        int damage = getAtt()+;
+        target.modifyHealth(-damage);
+        std::cout << "Skeleton attacks!";
+}
+void Ghost::attack(Actor& target) {
+    int damage = getAtt();
+    target.Actor::modifyHealth(-damage);
+    std::cout << "Ghost passes through your defenses and attacks!";
 }
 
