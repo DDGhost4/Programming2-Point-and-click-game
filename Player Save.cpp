@@ -9,7 +9,7 @@
 
 
 
-SaveData::SaveData() : m_inventory(), m_stats(0,0,0), m_room(0) {};
+SaveData::SaveData() : m_inventory(), m_stats(0, 0, 0), m_room(0) {};
 
 SaveSystem::SaveSystem() {};
 
@@ -18,7 +18,7 @@ bool SaveSystem::loadSaveFile(const std::filesystem::path& file, SaveData& out) 
 	if (!ifs) {
 		return false;
 	}
-	
+
 	// read room
 	int room;
 	if (!(ifs >> room)) {
@@ -26,7 +26,7 @@ bool SaveSystem::loadSaveFile(const std::filesystem::path& file, SaveData& out) 
 		return false;
 	}
 	out.setCurrentRoom(room);
-	
+
 	// read stats
 	Stats s;
 	if (!(ifs >> s.ATT >> s.DEF >> s.HP)) {
@@ -34,20 +34,20 @@ bool SaveSystem::loadSaveFile(const std::filesystem::path& file, SaveData& out) 
 		return false;
 	}
 	out.setCurrentStats(s);
-	
+
 	// read inventory count
 	size_t inventoryCount;
 	if (!(ifs >> inventoryCount)) {
 		ifs.close();
 		return false;
 	}
-	
+
 	ifs.ignore(10000, '\n');
-	
+
 	// read each inventory item
 	std::string itemType;
 	for (size_t i = 0; i < inventoryCount; ++i) {
-		if (!std::getline(ifs,itemType)) {
+		if (!std::getline(ifs, itemType)) {
 			ifs.close();
 			return false;
 		}
@@ -55,21 +55,21 @@ bool SaveSystem::loadSaveFile(const std::filesystem::path& file, SaveData& out) 
 		else if (itemType == "Sword") { out.addItem(std::make_unique<Swords>()); }
 		else if (itemType == "Shield") { out.addItem(std::make_unique<Shields>()); }
 	}
-	
-	
+
+
 	ifs.close();
 	return true;
 }
 
 
-bool SaveSystem::saveToFile(const std::filesystem::path& file,const SaveData& data) const {
+bool SaveSystem::saveToFile(const std::filesystem::path& file, const SaveData& data) const {
 	std::ofstream ofs(file);
 	if (!ofs) {
 		return false;
 	}
 	else {
-		
-       // write basic player info
+
+		// write basic player info
 		ofs << data.getCurrentRoom() << '\n';
 		Stats s = data.getCurrentStats();
 		ofs << s.ATT << '\n' << s.DEF << '\n' << s.HP << '\n';
@@ -101,7 +101,7 @@ bool SaveSystem::createSaveFile(const std::filesystem::path& file) {
 	if (!create) {
 		return false;
 	}
-		return !create.fail();
+	return !create.fail();
 }
 
 bool SaveSystem::deleteSaveFile(const std::filesystem::path& file) {

@@ -1,7 +1,7 @@
 #include "Button.h"
 
 Button::Button(const sf::Font& font, const std::string& str, sf::Vector2f size, sf::Vector2f position)
-    : text(font, str, 28) // correct sf::Text construction (font first)
+    : text(font, str, 28) // original ordering (font first) used in this project
 {
     shape.setSize(size);
     shape.setFillColor(sf::Color(80, 80, 80));
