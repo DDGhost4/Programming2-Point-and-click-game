@@ -46,7 +46,7 @@ public:
 private:
     std::vector<std::unique_ptr<Items>> m_inventory;
     Stats m_stats{};
-    int m_room{0};
+    int m_room{ 0 };
 };
 
 
@@ -54,19 +54,19 @@ private:
 class SaveSystem {
 public:
     SaveSystem();
- 
-	bool loadSaveFile(const std::filesystem::path& file, SaveData& out); //Loads the save
-	bool deleteSaveFile(const std::filesystem::path& file); //deletes save file
+
+    bool loadSaveFile(const std::filesystem::path& file, SaveData& out); //Loads the save
+    bool deleteSaveFile(const std::filesystem::path& file); //deletes save file
     void storeSaveName() {
         std::string filename;
         std::getline(std::cin, filename);
-        m_filename = filename; 
+        m_filename = filename;
     }
     std::string getSaveName() {
         return m_filename;
     }
     bool createSaveFile(const std::filesystem::path& file);
-	bool saveToFile(const std::filesystem::path& file, const SaveData& data) const ; //saves to the file
+    bool saveToFile(const std::filesystem::path& file, const SaveData& data) const; //saves to the file
 
 private:
     std::string m_filename;
