@@ -1,5 +1,6 @@
 # Dungeon Divers
-Brief description of your project (1–2 sentences).
+This project leads the player into a point-and-click style dungeon adventure game where they will venture through 10 different randomized rooms. Where they will need to fight against different enemies and will be able to do different things like heal with potions, find new and better armorand weapons.
+
 ---
 ## Team Members
 - Rafael Casillas
@@ -24,11 +25,10 @@ git clone <your-repo-link>
 - If using another setup, provide specific instructions here
 ---
 ## Features
-- Feature 1 (e.g., Add items)
-- Feature 2 (e.g., Delete items)
-- Feature 3 (e.g., Save/load data)
-- Feature 4 (e.g., Input validation)
-- Feature 5 (e.g., GUI interaction)
+- automatically saves progress whenever the player enters a new room
+- loads save file when player selects "load" at main menu
+- multiple upgrades for items
+- randomized rooms and chances for getting items between starting and ending rooms
 ---
 ## OOP Concepts Used
 ### Encapsulation
