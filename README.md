@@ -32,13 +32,15 @@ git clone <your-repo-link>
 ---
 ## OOP Concepts Used
 ### Encapsulation
-- Explain how data is protected using private members and public methods
+- The items’ health that is replenished and the effect of equipment on the player’s stats will be kept private and have to be called in the items function definition.
 ### Inheritance
-- Describe any base and derived classes used
+- Used with the player class and the enemy class, which consists of the skeleton and ghost, which are derived classes from the base class Actor.
 ### Polymorphism
-- Explain function overloading or virtual functions used
+- Within the header file for the items, base class; items, contains multiple virtual functions that determine whether to execute equipping any armor, shield, or sword, or add health to the actor’s current health after using the health potion.
 ### Composition
-- Describe “has-a” relationships between classes
+- Player class has-a actress’ stats in the form of actor health, attack damage, and defense. Which appears for all actors player, skeleton, and ghost.
+### Abstraction
+- The Items class in Item.h file uses a pure virtual function to allow individual specific implementations of getName() for each item.
 ---
 ## Team Contributions
 ### Member 1: [Name]
