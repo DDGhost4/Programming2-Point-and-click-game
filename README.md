@@ -42,7 +42,7 @@ This project leads the player into a point-and-click style dungeon adventure gam
 ### Member 1: Damien Provost
 - GUI
 ### Member 2: Oren Dagta
-- Item and item functions
+- Items and item functions
 ### Member 3: Rafael Casillas
 - Save and load
 - Actor and combat
