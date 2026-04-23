@@ -10,19 +10,15 @@ This project leads the player into a point-and-click style dungeon adventure gam
 ---
 ## How to Run
 ### Requirements
-- C++ compiler (e.g., g++, Visual Studio 2022)
-- GUI framework used (as applicable): [e.g., WinForms / Qt / etc.]
+- Visual Studio 2022
+- SFML
 ### Steps
-1. Clone the repository:
-git clone <your-repo-link>
-2. Open the project in your IDE (e.g., Visual Studio)
-3. Build the project
-4. Run the application
+1. Open the project in Visual Studio
+2. Run the file
 ### Notes
 - If using Visual Studio:
 - Open the `.sln` file
 - Press **F5** to run
-- If using another setup, provide specific instructions here
 ---
 ## Features
 - automatically saves progress whenever the player enters a new room
@@ -43,18 +39,16 @@ git clone <your-repo-link>
 - The Items class in Item.h file uses a pure virtual function to allow individual specific implementations of getName() for each item.
 ---
 ## Team Contributions
-### Member 1: [Name]
-- Responsibility 1
-- Responsibility 2
-### Member 2: [Name]
-- Responsibility 1
-- Responsibility 2
-### Member 3: [Name]
-- Responsibility 1
-- Responsibility 2
-### Member 4: [Name] (if applicable)
-- Responsibility 1
-- Responsibility 2
+### Member 1: Damien Provost
+- GUI
+### Member 2: Oren Dagta
+- Item and item functions
+### Member 3: Rafael Casillas
+- Save and load
+- Actor and combat
+### Member 4: Dillon Sitepu
+- Inventory
+- Actor and combat
 ---
 ## AI and External Resources Disclosure (Required)
 You must clearly document **all external help used** in this project.
