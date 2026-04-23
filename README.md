@@ -14,11 +14,9 @@ This project leads the player into a point-and-click style dungeon adventure gam
 - SFML
 ### Steps
 1. Open the project in Visual Studio
-2. Run the file
+2. Click **Local Windows Debugger** to run
 ### Notes
-- If using Visual Studio:
-- Open the `.sln` file
-- Press **F5** to run
+- Open the `.sln` file to open project
 ---
 ## Features
 - automatically saves progress whenever the player enters a new room
@@ -48,19 +46,15 @@ This project leads the player into a point-and-click style dungeon adventure gam
 - Actor and combat
 ### Member 4: Dillon Sitepu
 - Inventory
+- Rooms
 - Actor and combat
 ---
 ## AI and External Resources Disclosure (Required)
 You must clearly document **all external help used** in this project.
 ### AI Tools
 List any AI tools used (e.g., ChatGPT, Copilot, etc.) and describe:
-- What you asked the AI to do
-- What code or explanation it generated
-- What you modified or learned from it
-Example:
-- ChatGPT: Helped generate initial structure for the Task class. We
-modified variable names, added validation, and integrated it with our
-TaskManager.
+- ChatGPT: initialized multiple varients of an items and understood the significance of using virtual functions
+- CoPilot: helped with understanding of what was going wrong and how to fix, and understand files stream and unique pointers
 ### External Resources
 List all non-AI resources used:
 - Websites (e.g., Stack Overflow, tutorials)
