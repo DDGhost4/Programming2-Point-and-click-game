@@ -62,9 +62,10 @@ public:
         std::getline(std::cin, filename);
         m_filename = filename; 
     }
-    std::string getSaveName() {
-        return m_filename;
-    }
+ template <typename T>
+ T getSaveName() {
+     return m_filename;
+ }
     bool createSaveFile(const std::filesystem::path& file);
 	bool saveToFile(const std::filesystem::path& file, const SaveData& data) const ; //saves to the file
 
