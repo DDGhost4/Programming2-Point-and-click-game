@@ -57,14 +57,8 @@ List any AI tools used (e.g., ChatGPT, Copilot, etc.) and describe:
 - CoPilot: helped with understanding of what was going wrong and how to fix, and understand files stream and unique pointers
 ### External Resources
 List all non-AI resources used:
-- Websites (e.g., Stack Overflow, tutorials)
-- Documentation
-- YouTube videos
-- Sample code
-Include links when possible.
-Example:
-- https://cplusplus.com (used for vector reference)
-- YouTube tutorial on basic Qt GUI setup
+- Stack Overflow
+- https://www.sfml-dev.org/#sfml-is-multi-language(SFML multimedia library)
 ### Collaboration Policy Statement
 All submitted work reflects our team’s understanding. Any external code
 has been:
@@ -75,5 +69,5 @@ Failure to disclose AI or external resources may be considered an academic
 integrity violation.
 ---
 ## Additional Notes (Optional)
-- Known issues or limitations
-- Future improvements
+- requires command prompt along with graphics window
+- better graphics more features
