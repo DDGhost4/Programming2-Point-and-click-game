@@ -53,7 +53,7 @@ This project leads the player into a point-and-click style dungeon adventure gam
 You must clearly document **all external help used** in this project.
 ### AI Tools
 List any AI tools used (e.g., ChatGPT, Copilot, etc.) and describe:
-- ChatGPT: initialized multiple varients of an items and understood the significance of using virtual functions
+- ChatGPT: initialized multiple varients of an items and understood the significance of using virtual functions, also helped show bugs and how to fix them.
 - CoPilot: helped with understanding of what was going wrong and how to fix, and understand files stream and unique pointers
 ### External Resources
 List all non-AI resources used:
