@@ -58,7 +58,7 @@ List any AI tools used (e.g., ChatGPT, Copilot, etc.) and describe:
 ### External Resources
 List all non-AI resources used:
 - Stack Overflow
-- https://www.sfml-dev.org/#sfml-is-multi-language(SFML multimedia library)
+- https://www.sfml-dev.org/#sfml-is-multi-language (SFML multimedia library)
 ### Collaboration Policy Statement
 All submitted work reflects our team’s understanding. Any external code
 has been:
