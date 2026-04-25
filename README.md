@@ -8,6 +8,9 @@ This project leads the player into a point-and-click style dungeon adventure gam
 - Dillon Sitepu
 - Oren Dagta
 ---
+### UML Diagram
+<img width="6489" height="5133" alt="UML" src="https://github.com/user-attachments/assets/1fea292e-67b7-4078-be07-4773ac1ea25c" />
+
 ## How to Run
 ### Requirements
 - Visual Studio 2022
