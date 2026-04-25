@@ -13,8 +13,10 @@ This project leads the player into a point-and-click style dungeon adventure gam
 - Visual Studio 2022
 - SFML
 ### Steps
-1. Open the project in Visual Studio
-2. Click **Local Windows Debugger** to run
+1. If not done already download sfml 3.0.2 64 bit
+2. Open the project in Visual Studio
+3. Use this video in order to implement sfml safely https://www.youtube.com/watch?v=GB6DcN1hD24
+4. Click **Local Windows Debugger** to run
 ### Notes
 - Open the `.sln` file to open project
 ---
